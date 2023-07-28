@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  line-height: 1.5;
+  box-sizing: border-box;
+  color: #333;
+}
+
+.wrap {
+  width: 1200px;
+  margin: auto;
+  /* div = block 요소이므로 margin auto해도 가운데정렬 가능 */
+  /* txt가 가운데 정렬하려면 text-align */
+  /* position 값은 t50% 방향50% */
+  /* a태그는 인라인 div는 block */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* align items는 한 줄 text-align은 두 줄 */
+  height: 100px;
+  border-bottom: 1px solid #000;
+}
+
+.gnb .gnb-depth1 {
+  display: flex;
+}
+
+.gnb .gnb-depth1 li a {
+  /* a태그는 인라인이므로 뭐 지정할려면 block으로 */
+  padding: 20px;
+  /* display: block; */
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.slide {
+  /* img는 인라인이므로 연속해서 들어가면 밑에 space가 좀 생김 고로
+  display를 block으로 해주면 공백 없어짐 */
+  height: 300px;
+  background: lightcoral;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide ul {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slide img {
+  display: block;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+}
+
+.sec-g {
+  width: 30%;
+  height: 180px;
+  background: green;
+  text-align: center;
+  line-height: 180px;
+  font-weight: bold;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  border-top: 1px solid #000;
+}
+
+.logo-head img,
+.logo-foot img {
+  filter: grayscale(100%);
+}
+
+.copyright {
+  font-size: small;
+  text-align: center;
+}
+
+footer .family a {
+  padding: 20px;
+}
