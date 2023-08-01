@@ -10,6 +10,9 @@
   box-sizing: border-box;
   color: #333;
 }
+:root {
+  --main: #3cb149;
+}
 
 .blind {
   position: absolute;
@@ -31,6 +34,7 @@
 }
 
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,7 +42,23 @@
   height: 100px;
   border-bottom: 1px solid #000;
   z-index: 1000;
-  position: relative;
+}
+
+.gnb::before {
+  content: "";
+  position: absolute;
+  /* 포지션 앱솔루트 넣으면 디스플레이 블럭됨 */
+  top: 100px;
+  left: 0px;
+  width: 1200px;
+  height: 0px;
+  background-color: #434748;
+  transition: 0.1s linear;
+}
+
+.gnb:hover::before {
+  height: 130px;
+  opacity: 1;
 }
 
 .gnb .gnb-depth1 {
@@ -52,19 +72,41 @@
 .gnb .gnb-depth1 > li > a {
   /* a태그는 인라인이므로 뭐 지정할려면 block으로 */
   width: 120px;
+  height: 100px;
   font-size: 20px;
   display: block;
   text-align: center;
+  line-height: 100px;
   /* padding: 20px; */
+  transition: 0.1s linear;
 }
 
-.gnb .gnb-depth2 {
-  position: absolute;
-  top: 64px;
-  width: 100%;
-  left: 0;
+.gnb .gnb-depth1 > li:hover > a {
+  color: var(--main);
+  font-weight: bold;
+}
+
+/* 이후 상태 */
+/* 하나씩 나오게 할 때는 li에 오버를 
+전체 다를 하고 싶을때는 전체를 포괄하고 있는 거에 오버를 */
+.gnb .gnb-depth1:hover > li > .gnb-depth2 {
+  height: 130px;
   padding: 10px 0px;
+  opacity: 1;
+}
+
+/* 이전 상태 : height: 0, padding:0, opacity:0 */
+.gnb .gnb-depth2 {
+  overflow: hidden;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 0;
+  padding: 0;
+  opacity: 0;
   background: #434748;
+  transition: 0.1s linear;
 }
 
 .gnb .gnb-depth2 li a {
@@ -73,6 +115,14 @@
   display: block;
   padding: 7px 0;
   font-size: 14px;
+  transition: 0.3s linear;
+  /* 트랜지션은 항상 오버하기 전 상태에 넣어야 함 */
+}
+
+.gnb .gnb-depth2 li a:hover {
+  background-color: var(--main);
+  color: white;
+  height: 40px;
 }
 
 .slide {
@@ -151,6 +201,7 @@
 .lst-gallery {
   display: flex;
   justify-content: space-between;
+  text-align: center;
 }
 
 .lst-gallery li {
@@ -205,3 +256,47 @@ footer .family a {
 .bnr-test img {
   width: 100%;
 } */
+
+#modal {
+  display: none;
+}
+.modal-dimmed {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal-dimmed .modal-box {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  border-radius: 5px;
+  background: #eee;
+  padding: 30px;
+}
+
+.modal-dimmed .modal-box .modal-cont {
+  margin-top: 30px;
+}
+
+.modal-dimmed .modal-box .button-close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  border-radius: 50px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
