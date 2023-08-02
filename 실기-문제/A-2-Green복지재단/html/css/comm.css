@@ -257,10 +257,11 @@ footer .family a {
   width: 100%;
 } */
 
-#modal {
+/* #modal {
   display: none;
-}
+} */
 .modal-dimmed {
+  display: none;
   position: fixed;
   content: "";
   top: 0;
@@ -268,7 +269,6 @@ footer .family a {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
