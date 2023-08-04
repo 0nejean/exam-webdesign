@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  line-height: 1.5;
+  color: #333;
+}
+
+.inner {
+  display: flex;
+  background: lightblue;
+}
+
+header {
+  width: 200px;
+  background: lightpink;
+}
+
+.logo a {
+  display: block;
+  /* text-align : center; */
+  /* img 태그가 inline 일 경우 */
+}
+
+.logo img {
+  display: block;
+  margin: auto;
+}
+
+#gnb .depth1 {
+  padding: 0 30px;
+}
+
+#gnb .depth1 > li > a {
+  display: block;
+  position: relative;
+  padding: 11px 0 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#gnb .depth1 > li > a:hover {
+  background: blue;
+}
+
+#gnb .depth1 > li > a::after {
+  content: ">";
+  position: absolute;
+  top: 10px;
+  right: 0;
+  opacity: 0.5;
+}
+
+#gnb .depth2 a {
+  display: block;
+  font-size: 14px;
+  color: #555;
+}
+
+#gnb .depth2 a:hover {
+  background: blue;
+  color: white;
+}
+
+main {
+  flex-grow: 1;
+  /* flex-grow 나머지 공간은 내가 다 사용할게 */
+  /* width: calc(100% - 200px); */
+  background: lightyellow;
+}
+
+footer {
+  height: 100px;
+  background: lightgreen;
+}
