@@ -157,6 +157,11 @@ main {
 .slide {
   height: 400px;
   background: lightgray;
+  overflow: hidden;
+}
+
+.slide .img {
+  height: 100%;
 }
 
 .banner {
