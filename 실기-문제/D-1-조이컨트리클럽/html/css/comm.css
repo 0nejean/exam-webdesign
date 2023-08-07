@@ -16,6 +16,7 @@
 }
 
 header {
+  position: relative;
   width: 200px;
   background: lightpink;
 }
@@ -52,9 +53,22 @@ header {
   top: 10px;
   right: 0;
   opacity: 0.5;
+  transition: all 0.3s linear;
+}
+
+#gnb .depth1 > .active > a::after {
+  transform: rotate(90deg);
 }
 
 #gnb .depth2 {
+  overflow: hidden;
+  max-height: 0;
+  padding-top: 0;
+  transition: all 0.3s linear;
+}
+
+#gnb .active .depth2 {
+  max-height: 500px;
   padding-top: 10px;
 }
 
@@ -70,11 +84,89 @@ header {
   color: white;
 }
 
+/* util */
+.util {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+}
+
+.util a {
+  position: relative;
+  display: block;
+  padding: 5px;
+  margin-top: -5px;
+}
+
+.util a::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0px;
+  width: 1px;
+  height: 15px;
+  background: #000;
+  opacity: 0.5;
+}
+
+.util a:first-child::before {
+  display: none;
+}
+
+/* .util span {
+
+  div display block이나 
+  span은 display inline 이 거 제외하고 
+  둘이 비슷한 용도로 사용하나 div가 span을 포괄하는 느낌
+  
+  display: block;
+  opacity: 0.5;
+} */
+
 main {
+  position: relative;
   flex-grow: 1;
   /* flex-grow 나머지 공간은 내가 다 사용할게 */
   /* width: calc(100% - 200px); */
   background: lightyellow;
+}
+
+.quick {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: lightseagreen;
+  align-content: center;
+}
+
+.quick img {
+  display: block;
+  width: 80px;
+}
+
+.quick a {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.slide {
+  height: 400px;
+  background: lightgray;
+}
+
+.banner {
+  height: 200px;
+  background: lightsalmon;
+}
+
+.tabs-wrap {
+  height: 250px;
+  background: lightcyan;
 }
 
 footer {
