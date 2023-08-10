@@ -312,6 +312,9 @@ main {
   width: 100%;
 }
 
+.lst-gallery li {
+}
+
 .lst-gallery img {
   display: block;
   width: 100%;
