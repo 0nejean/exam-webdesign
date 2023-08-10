@@ -19,4 +19,10 @@ $(function () {
       $(this).parent().addClass("active");
     }
   });
+
+  // tabs
+  $(".tab-tit button").on("click", function () {
+    $(".tab").removeClass("active");
+    $(this).parents(".tab").addClass("active");
+  });
 });

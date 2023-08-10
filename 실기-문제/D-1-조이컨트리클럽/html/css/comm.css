@@ -12,13 +12,14 @@
 
 .inner {
   display: flex;
-  background: lightblue;
 }
 
 header {
   position: relative;
   width: 200px;
-  background: lightpink;
+  background: white;
+  border: 1px solid black;
+  border-bottom: 0px;
 }
 
 .logo a {
@@ -131,16 +132,23 @@ main {
   position: relative;
   flex-grow: 1;
   /* flex-grow 나머지 공간은 내가 다 사용할게 */
-  /* width: calc(100% - 200px); */
-  background: lightyellow;
+  width: calc(100% - 200px);
 }
 
 .quick {
+  z-index: 1;
   position: absolute;
   top: 0;
   right: 0;
-  background: lightseagreen;
+  background: black;
   align-content: center;
+}
+
+.quick a {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  color: white;
 }
 
 .quick img {
@@ -148,33 +156,173 @@ main {
   width: 80px;
 }
 
-.quick a {
-  display: block;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
 .slide {
+  position: relative;
+  overflow: hidden;
   height: 400px;
   background: lightgray;
-  overflow: hidden;
 }
 
-.slide .img {
-  height: 100%;
+.slide ul {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  animation-name: ani-slide;
+  animation-duration: 10s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ani-slide {
+  0% {
+    top: 0px;
+  }
+  30% {
+    top: 0px;
+  }
+  33% {
+    top: -100%;
+  }
+  63% {
+    top: -100%;
+  }
+  66% {
+    top: -200%;
+  }
+  96% {
+    top: -200%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  /* height: 100%; */
+  height: 400px;
+  object-fit: cover;
 }
 
 .banner {
   height: 200px;
-  background: lightsalmon;
+  background: white;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.banner a {
+  display: block;
+
+  padding: 20px;
+}
+
+.banner img {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
 }
 
 .tabs-wrap {
+  position: relative;
+  margin: 20px;
+  padding-top: 60px;
   height: 250px;
-  background: lightcyan;
+  background: white;
+}
+
+.tabs-wrap::before {
+  /* before은 tabs-wrap 가장 처음부분에 위치, after은 가장 마지막에 위치 */
+  z-index: 5;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: black;
+  display: block;
+  position: absolute;
+  top: 48px;
+  left: 0;
+}
+
+.tabs-wrap .tab-tit {
+  font-size: large;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid #000;
+  background: lightgray;
+  text-align: center;
+}
+
+.tabs-wrap .tab-tit button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+}
+
+.tabs-wrap .active .tab-tit {
+  z-index: 10;
+  border: 3px solid black;
+  background: white;
+  border-bottom: 3px solid white;
+}
+
+.tabs-wrap .tit-gly {
+  left: 98px;
+}
+
+.tabs-wrap .tab-cont {
+  display: none;
+}
+
+.tabs-wrap .active .tab-cont {
+  display: block;
+}
+
+.lst-bbs a {
+  display: flex;
+  padding: 7px 0px;
+  justify-content: space-between;
+}
+
+.lst-bbs a p {
+  width: 77%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: medium;
+}
+
+.lst-bbs a em {
+  font-size: small;
+}
+
+.lst-gallery {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  width: 100%;
+}
+
+.lst-gallery li {
+}
+
+.lst-gallery img {
+  display: block;
+  width: 100%;
+  height: 150px;
 }
 
 footer {
   height: 100px;
-  background: lightgreen;
+  background: black;
+  color: white;
 }
